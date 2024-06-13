@@ -1,0 +1,5 @@
+../Core/Src/Controlling.c:58:6:controllingSM	6
+../Core/Src/Controlling.c:96:6:Controlling	1
+../Core/Src/Controlling.c:156:6:setMotorDirection	1
+../Core/Src/Controlling.c:162:13:pwm_init	2
+../Core/Src/Controlling.c:178:17:abs_diff	2

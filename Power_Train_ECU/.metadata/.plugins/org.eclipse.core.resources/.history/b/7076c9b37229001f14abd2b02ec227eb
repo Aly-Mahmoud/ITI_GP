@@ -1,0 +1,72 @@
+/**
+  ******************************************************************************
+  * @file           : getSteering.c
+  * @brief          : Module That Responsible To Check the steering position through ADC
+  ******************************************************************************/
+  
+#include "stm32f4xx_hal.h"
+#include "cmsis_os2.h"
+
+// Global variables to keep track of the encoder state
+volatile int32_t position = 0;
+volatile uint8_t lastA = 0;
+volatile uint8_t lastB = 0;
+
+typedef struct {
+    uint16_t encoderPINA;
+    uint16_t encoderPINB;
+    GPIO_TypeDef* encoderGPIO;
+    int encoderCount;
+    int encoderErrors;
+    uint8_t lastEncoded;
+} Encoder;
+
+// Function to read the encoder signals and update the count
+void encoderCount(Encoder* enc) {
+    int EncoderPhaseA = HAL_GPIO_ReadPin(enc->encoderGPIO, enc->encoderPINA);  // MSB
+    int EncoderPhaseB = HAL_GPIO_ReadPin(enc->encoderGPIO, enc->encoderPINB);  // LSB
+
+    int currentEncoded = (EncoderPhaseA << 1) | EncoderPhaseB;
+    int sum = (enc->lastEncoded << 2) | currentEncoded;
+    switch (sum) {
+        case 0b0001:
+        case 0b0111:
+        case 0b1110:
+        case 0b1000:
+            enc->encoderCount--;
+            break;
+        case 0b0010:
+        case 0b1011:
+        case 0b1101:
+        case 0b0100:
+            enc->encoderCount++;
+            break;
+        default:
+            enc->encoderErrors++;
+            break;
+    }
+    enc->lastEncoded = currentEncoded;
+}
+
+void getSteeringPosition(void) {
+
+    while (1)
+    {
+        read_encoder_signals(); // Read encoder signals
+        osDelay(10); // Delay to simulate periodic checking (adjust as necessary)
+    }
+}
+
+ 
+void EXTI0_IRQHandler(void)
+{
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0); // Clear the interrupt flag
+    read_encoder_signals(); // Read the encoder signals and update position
+}
+
+void EXTI1_IRQHandler(void)
+{
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1); // Clear the interrupt flag
+    read_encoder_signals(); // Read the encoder signals and update position
+}
+

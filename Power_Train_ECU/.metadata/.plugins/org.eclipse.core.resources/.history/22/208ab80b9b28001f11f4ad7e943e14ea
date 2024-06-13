@@ -1,0 +1,28 @@
+/**
+  ******************************************************************************
+  * @file           : getSteering.c
+  * @brief          : Module That Responsible To Check the steering position through ADC
+  ******************************************************************************/
+  
+#include "stm32f4xx_hal.h"
+
+
+extern ADC_HandleTypeDef hadc1;
+volatile uint32_t adcValue = 0;
+
+void getSteeringPosition(void) {
+
+    while (1)
+    {
+        HAL_ADC_Start(&hadc1);  // Start ADC
+
+        if (HAL_ADC_PollForConversion(&hadc1, 5000) == HAL_OK)
+        {
+           adcValue = HAL_ADC_GetValue(&hadc1);  // Get ADC value
+        }
+        osDelay(1);
+    }
+}
+
+ 
+  

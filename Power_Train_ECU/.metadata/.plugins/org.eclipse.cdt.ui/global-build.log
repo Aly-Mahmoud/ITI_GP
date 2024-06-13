@@ -1,0 +1,1933 @@
+12:28:24 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_timebase_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_timebase_tim.d" -MT"Core/Src/stm32f4xx_hal_timebase_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_timebase_tim.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  27840	     96	  21160	  49096	   bfc8	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+12:54:57 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  27840	     96	  21160	  49096	   bfc8	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+12:58:14 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  27840	     96	  21160	  49096	   bfc8	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+13:14:51 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  27840	     96	  21160	  49096	   bfc8	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+13:17:44 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+   text	   data	    bss	    dec	    hex	filename
+  27840	     96	  21160	  49096	   bfc8	Final.elf
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+13:19:23 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27840	     96	  21160	  49096	   bfc8	Final.elf
+Finished building: default.size.stdout
+ 
+13:38:17 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  27808	     96	  21160	  49064	   bfa8	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+13:49:46 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/getSteering.c: In function 'getSteeringPosition':
+../Core/Src/getSteering.c:55:9: warning: implicit declaration of function 'read_encoder_signals' [-Wimplicit-function-declaration]
+   55 |         read_encoder_signals(); // Read encoder signals
+      |         ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:113:13: error: unknown type name 'Encoder'
+  113 |             Encoder myEncoder;
+      |             ^~~~~~~
+../Core/Src/main.c:114:22: error: request for member 'encoderPINA' in something not a structure or union
+  114 |             myEncoder.encoderPINA = GPIO_PIN_0;
+      |                      ^
+../Core/Src/main.c:115:22: error: request for member 'encoderPINB' in something not a structure or union
+  115 |             myEncoder.encoderPINB = GPIO_PIN_1;
+      |                      ^
+../Core/Src/main.c:116:22: error: request for member 'encoderGPIO' in something not a structure or union
+  116 |             myEncoder.encoderGPIO = GPIOB;
+      |                      ^
+../Core/Src/main.c:117:22: error: request for member 'encoderCount' in something not a structure or union
+  117 |             myEncoder.encoderCount = 0;
+      |                      ^
+../Core/Src/main.c:118:22: error: request for member 'encoderErrors' in something not a structure or union
+  118 |             myEncoder.encoderErrors = 0;
+      |                      ^
+../Core/Src/main.c:119:22: error: request for member 'lastEncoded' in something not a structure or union
+  119 |             myEncoder.lastEncoded = 0;
+      |                      ^
+../Core/Src/main.c:198:11: warning: implicit declaration of function 'encoderCount' [-Wimplicit-function-declaration]
+  198 |           encoderCount(&myEncoder);
+      |           ^~~~~~~~~~~~
+make[1]: *** [Core/Src/subdir.mk:49: Core/Src/main.o] Error 1
+make[1]: *** Waiting for unfinished jobs....
+make: *** [makefile:65: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:52:00 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/getSteering.c: In function 'EXTI0_IRQHandler':
+../Core/Src/getSteering.c:29:5: warning: implicit declaration of function 'read_encoder_signals' [-Wimplicit-function-declaration]
+   29 |     read_encoder_signals(); // Read the encoder signals and update position
+      |     ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/getSteering.o: in function `EXTI0_IRQHandler':
+D:/ITI/Graduation_Project/Final_Proj/Final/Debug/../Core/Src/getSteering.c:29: undefined reference to `read_encoder_signals'
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/getSteering.o: in function `EXTI1_IRQHandler':
+D:/ITI/Graduation_Project/Final_Proj/Final/Debug/../Core/Src/getSteering.c:35: undefined reference to `read_encoder_signals'
+collect2.exe: error: ld returned 1 exit status
+make[1]: *** [makefile:72: Final.elf] Error 1
+make: *** [makefile:65: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:52:30 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  27856	     96	  21152	  49104	   bfd0	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+13:59:13 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:113:13: error: unknown type name 'Encoder'
+  113 |             Encoder myEncoder;
+      |             ^~~~~~~
+../Core/Src/main.c:114:22: error: request for member 'encoderPINA' in something not a structure or union
+  114 |             myEncoder.encoderPINA = GPIO_PIN_0;
+      |                      ^
+../Core/Src/main.c:115:22: error: request for member 'encoderPINB' in something not a structure or union
+  115 |             myEncoder.encoderPINB = GPIO_PIN_1;
+      |                      ^
+../Core/Src/main.c:116:22: error: request for member 'encoderGPIO' in something not a structure or union
+  116 |             myEncoder.encoderGPIO = GPIOB;
+      |                      ^
+../Core/Src/main.c:117:22: error: request for member 'encoderCount' in something not a structure or union
+  117 |             myEncoder.encoderCount = 0;
+      |                      ^
+../Core/Src/main.c:118:22: error: request for member 'encoderErrors' in something not a structure or union
+  118 |             myEncoder.encoderErrors = 0;
+      |                      ^
+../Core/Src/main.c:119:22: error: request for member 'lastEncoded' in something not a structure or union
+  119 |             myEncoder.lastEncoded = 0;
+      |                      ^
+../Core/Src/main.c:113:21: warning: variable 'myEncoder' set but not used [-Wunused-but-set-variable]
+  113 |             Encoder myEncoder;
+      |                     ^~~~~~~~~
+make[1]: *** [Core/Src/subdir.mk:49: Core/Src/main.o] Error 1
+make: *** [makefile:65: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:59:41 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  27840	     96	  21160	  49096	   bfc8	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+14:06:03 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  27824	     96	  21160	  49080	   bfb8	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+14:07:33 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+../Core/Src/getSteering.c: In function 'read_encoder_signals':
+../Core/Src/getSteering.c:19:46: error: 'GPIO' undeclared (first use in this function); did you mean 'GPIOD'?
+   19 |         uint8_t  currentB = HAL_GPIO_ReadPin(GPIO, GPIO_PIN_1);
+      |                                              ^~~~
+      |                                              GPIOD
+../Core/Src/getSteering.c:19:46: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [Core/Src/subdir.mk:49: Core/Src/getSteering.o] Error 1
+make: *** [makefile:65: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:07:48 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+../Core/Src/getSteering.c: In function 'read_encoder_signals':
+../Core/Src/getSteering.c:19:45: error: 'GPIO' undeclared (first use in this function); did you mean 'GPIOD'?
+   19 |         uint8_t currentB = HAL_GPIO_ReadPin(GPIO, GPIO_PIN_1);
+      |                                             ^~~~
+      |                                             GPIOD
+../Core/Src/getSteering.c:19:45: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [Core/Src/subdir.mk:49: Core/Src/getSteering.o] Error 1
+make: *** [makefile:65: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:07:57 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+../Core/Src/getSteering.c: In function 'read_encoder_signals':
+../Core/Src/getSteering.c:19:45: error: 'GPIO' undeclared (first use in this function); did you mean 'GPIOD'?
+   19 |         uint8_t currentB = HAL_GPIO_ReadPin(GPIO, GPIO_PIN_1);
+      |                                             ^~~~
+      |                                             GPIOD
+../Core/Src/getSteering.c:19:45: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [Core/Src/subdir.mk:49: Core/Src/getSteering.o] Error 1
+make: *** [makefile:65: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:08:26 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+../Core/Src/getSteering.c: In function 'read_encoder_signals':
+../Core/Src/getSteering.c:19:45: error: 'GPIO' undeclared (first use in this function); did you mean 'GPIOD'?
+   19 |         uint8_t currentB = HAL_GPIO_ReadPin(GPIO, GPIO_PIN_1);
+      |                                             ^~~~
+      |                                             GPIOD
+../Core/Src/getSteering.c:19:45: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [Core/Src/subdir.mk:49: Core/Src/getSteering.o] Error 1
+make: *** [makefile:65: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:08:38 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  27840	     96	  21160	  49096	   bfc8	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+14:47:02 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+../Core/Src/getSteering.c: In function 'getSteeringPosition':
+../Core/Src/getSteering.c:44:32: error: 'htim3' undeclared (first use in this function)
+   44 |         HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
+      |                                ^~~~~
+../Core/Src/getSteering.c:44:32: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/getSteering.c:47:34: error: expected ';' before ')' token
+   47 |         position = (TIM3->CNT)>>2);
+      |                                  ^
+      |                                  ;
+../Core/Src/getSteering.c:47:34: error: expected statement before ')' token
+../Core/Src/getSteering.c:43:17: warning: unused variable 'MSG' [-Wunused-variable]
+   43 |         uint8_t MSG[50] = {'\0'};
+      |                 ^~~
+make[1]: *** [Core/Src/subdir.mk:49: Core/Src/getSteering.o] Error 1
+make[1]: *** Waiting for unfinished jobs....
+make: *** [makefile:65: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:47:57 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+../Core/Src/getSteering.c: In function 'getSteeringPosition':
+../Core/Src/getSteering.c:49:34: error: expected ';' before ')' token
+   49 |         position = (TIM3->CNT)>>2);
+      |                                  ^
+      |                                  ;
+../Core/Src/getSteering.c:49:34: error: expected statement before ')' token
+make[1]: *** [Core/Src/subdir.mk:49: Core/Src/getSteering.o] Error 1
+make: *** [makefile:65: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:48:17 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28736	     96	  21232	  50064	   c390	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+14:50:57 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28736	     96	  21232	  50064	   c390	Final.elf
+Finished building: default.size.stdout
+ 
+15:46:16 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:447:17: error: 'sConfigOC' undeclared (first use in this function)
+  447 |                 sConfigOC[STEERING_MOTOR].Pulse = 10000;
+      |                 ^~~~~~~~~
+../Core/Src/main.c:447:17: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:453:25: error: 'count' undeclared (first use in this function); did you mean 'counter'?
+  453 |                         count++;
+      |                         ^~~~~
+      |                         counter
+make[1]: *** [Core/Src/subdir.mk:49: Core/Src/main.o] Error 1
+make: *** [makefile:65: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:47:14 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:448:26: error: subscripted value is neither array nor pointer nor vector
+  448 |                 sConfigOC[STEERING_MOTOR].Pulse = 10000;
+      |                          ^
+../Core/Src/main.c:449:61: error: subscripted value is neither array nor pointer nor vector
+  449 |                 HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC[STEERING_MOTOR], TIM_CHANNEL_3);
+      |                                                             ^
+../Core/Src/main.c:454:25: error: 'count' undeclared (first use in this function); did you mean 'counter'?
+  454 |                         count++;
+      |                         ^~~~~
+      |                         counter
+../Core/Src/main.c:454:25: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:462:18: error: subscripted value is neither array nor pointer nor vector
+  462 |         sConfigOC[STEERING_MOTOR].Pulse = 0;
+      |                  ^
+../Core/Src/main.c:463:53: error: subscripted value is neither array nor pointer nor vector
+  463 |         HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC[STEERING_MOTOR], TIM_CHANNEL_3);
+      |                                                     ^
+../Core/Src/main.c:440:28: warning: variable 'sConfigOC' set but not used [-Wunused-but-set-variable]
+  440 |         TIM_OC_InitTypeDef sConfigOC;
+      |                            ^~~~~~~~~
+make[1]: *** [Core/Src/subdir.mk:49: Core/Src/main.o] Error 1
+make: *** [makefile:65: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:47:54 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:454:25: error: 'count' undeclared (first use in this function); did you mean 'counter'?
+  454 |                         count++;
+      |                         ^~~~~
+      |                         counter
+../Core/Src/main.c:454:25: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [Core/Src/subdir.mk:49: Core/Src/main.o] Error 1
+make: *** [makefile:65: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:48:09 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28992	     96	  21240	  50328	   c498	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+15:51:39 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28992	     96	  21240	  50328	   c498	Final.elf
+Finished building: default.size.stdout
+ 
+15:54:01 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28568	     96	  21144	  49808	   c290	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+15:55:32 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28568	     96	  21144	  49808	   c290	Final.elf
+Finished building: default.size.stdout
+ 
+15:58:44 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28992	     96	  21240	  50328	   c498	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+15:59:29 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28652	     96	  21152	  49900	   c2ec	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+16:00:42 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28668	     96	  21152	  49916	   c2fc	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+16:06:33 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28668	     96	  21152	  49916	   c2fc	Final.elf
+Finished building: default.size.stdout
+ 
+16:14:14 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28668	     96	  21152	  49916	   c2fc	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+16:16:01 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28668	     96	  21152	  49916	   c2fc	Final.elf
+Finished building: default.size.stdout
+ 
+16:18:42 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28652	     96	  21152	  49900	   c2ec	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+16:21:10 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28348	     96	  21144	  49588	   c1b4	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+16:24:28 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28348	     96	  21144	  49588	   c1b4	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+16:25:28 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+../Core/Src/getSteering.c: In function 'getSteeringPosition':
+../Core/Src/getSteering.c:21:18: warning: operation on 'position' may be undefined [-Wsequence-point]
+   21 |         position = position = (int32_t)(int16_t)TIM3->CNT;
+      |         ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28348	     96	  21144	  49588	   c1b4	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+16:26:02 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/getSteering.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/getSteering.d" -MT"Core/Src/getSteering.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/getSteering.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28348	     96	  21144	  49588	   c1b4	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+16:28:25 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28348	     96	  21144	  49588	   c1b4	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+16:30:17 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28348	     96	  21144	  49588	   c1b4	Final.elf
+Finished building: default.size.stdout
+ 
+16:32:07 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28348	     96	  21144	  49588	   c1b4	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+16:34:07 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28348	     96	  21144	  49588	   c1b4	Final.elf
+Finished building: default.size.stdout
+ 
+16:34:28 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28348	     96	  21144	  49588	   c1b4	Final.elf
+Finished building: default.size.stdout
+ 
+17:04:25 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+   text	   data	    bss	    dec	    hex	filename
+  28688	     96	  21232	  50016	   c360	Final.elf
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:09:04 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28720	     96	  21232	  50048	   c380	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:13:02 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28720	     96	  21232	  50048	   c380	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:14:03 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28380	     96	  21144	  49620	   c1d4	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:14:10 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28380	     96	  21144	  49620	   c1d4	Final.elf
+Finished building: default.size.stdout
+ 
+17:15:42 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/Controlling.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Controlling.d" -MT"Core/Src/Controlling.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Controlling.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28720	     96	  21232	  50048	   c380	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:16:40 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/Controlling.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Controlling.d" -MT"Core/Src/Controlling.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Controlling.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28720	     96	  21232	  50048	   c380	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:19:06 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28396	     96	  21144	  49636	   c1e4	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:20:04 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28396	     96	  21144	  49636	   c1e4	Final.elf
+Finished building: default.size.stdout
+ 
+17:26:09 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28556	     96	  21152	  49804	   c28c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:30:10 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28668	     96	  21152	  49916	   c2fc	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:32:18 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28668	     96	  21152	  49916	   c2fc	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:33:00 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28668	     96	  21152	  49916	   c2fc	Final.elf
+Finished building: default.size.stdout
+ 
+17:36:02 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+   text	   data	    bss	    dec	    hex	filename
+  28668	     96	  21152	  49916	   c2fc	Final.elf
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:37:52 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28700	     96	  21152	  49948	   c31c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:38:36 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28700	     96	  21152	  49948	   c31c	Final.elf
+Finished building: default.size.stdout
+ 
+17:41:02 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28572	     96	  21152	  49820	   c29c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:44:11 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28620	     96	  21152	  49868	   c2cc	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:45:22 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28652	     96	  21152	  49900	   c2ec	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:45:41 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28652	     96	  21152	  49900	   c2ec	Final.elf
+Finished building: default.size.stdout
+ 
+17:46:33 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28652	     96	  21152	  49900	   c2ec	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:47:10 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28652	     96	  21152	  49900	   c2ec	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:47:49 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28652	     96	  21152	  49900	   c2ec	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+17:48:41 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28652	     96	  21152	  49900	   c2ec	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:01:49 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:512:17: warning: unused variable 'middle' [-Wunused-variable]
+  512 |         int32_t middle = ((Max_Steering_Left + Max_Steering_Right) / 2);
+      |                 ^~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  30348	     96	  21152	  51596	   c98c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:03:21 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:512:17: warning: unused variable 'middle' [-Wunused-variable]
+  512 |         int32_t middle = ((Max_Steering_Left + Max_Steering_Right) / 2);
+      |                 ^~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  30348	     96	  21152	  51596	   c98c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:03:59 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30348	     96	  21152	  51596	   c98c	Final.elf
+Finished building: default.size.stdout
+ 
+18:05:45 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:512:17: warning: unused variable 'middle' [-Wunused-variable]
+  512 |         int32_t middle = ((Max_Steering_Left + Max_Steering_Right) / 2);
+      |                 ^~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  30348	     96	  21152	  51596	   c98c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:06:22 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30348	     96	  21152	  51596	   c98c	Final.elf
+Finished building: default.size.stdout
+ 
+18:06:58 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30348	     96	  21152	  51596	   c98c	Final.elf
+Finished building: default.size.stdout
+ 
+18:08:56 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30348	     96	  21152	  51596	   c98c	Final.elf
+Finished building: default.size.stdout
+ 
+18:11:28 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:514:17: warning: unused variable 'max_steering_right_range' [-Wunused-variable]
+  514 |         int32_t max_steering_right_range = Max_Steering_Right * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:513:17: warning: unused variable 'max_steering_left_range' [-Wunused-variable]
+  513 |         int32_t max_steering_left_range = Max_Steering_Left * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:12:10 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:514:17: warning: unused variable 'max_steering_right_range' [-Wunused-variable]
+  514 |         int32_t max_steering_right_range = Max_Steering_Right * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:513:17: warning: unused variable 'max_steering_left_range' [-Wunused-variable]
+  513 |         int32_t max_steering_left_range = Max_Steering_Left * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:13:26 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+18:14:08 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+18:15:30 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+18:16:52 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+18:17:47 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+18:21:04 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:514:17: warning: unused variable 'max_steering_right_range' [-Wunused-variable]
+  514 |         int32_t max_steering_right_range = Max_Steering_Right * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:513:17: warning: unused variable 'max_steering_left_range' [-Wunused-variable]
+  513 |         int32_t max_steering_left_range = Max_Steering_Left * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:23:39 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:514:17: warning: unused variable 'max_steering_right_range' [-Wunused-variable]
+  514 |         int32_t max_steering_right_range = Max_Steering_Right * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:513:17: warning: unused variable 'max_steering_left_range' [-Wunused-variable]
+  513 |         int32_t max_steering_left_range = Max_Steering_Left * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:25:55 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:514:17: warning: unused variable 'max_steering_right_range' [-Wunused-variable]
+  514 |         int32_t max_steering_right_range = Max_Steering_Right * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:513:17: warning: unused variable 'max_steering_left_range' [-Wunused-variable]
+  513 |         int32_t max_steering_left_range = Max_Steering_Left * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:26:03 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+18:27:30 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:514:17: warning: unused variable 'max_steering_right_range' [-Wunused-variable]
+  514 |         int32_t max_steering_right_range = Max_Steering_Right * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:513:17: warning: unused variable 'max_steering_left_range' [-Wunused-variable]
+  513 |         int32_t max_steering_left_range = Max_Steering_Left * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:29:02 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:514:17: warning: unused variable 'max_steering_right_range' [-Wunused-variable]
+  514 |         int32_t max_steering_right_range = Max_Steering_Right * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:513:17: warning: unused variable 'max_steering_left_range' [-Wunused-variable]
+  513 |         int32_t max_steering_left_range = Max_Steering_Left * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:31:14 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:515:17: warning: unused variable 'max_steering_right_range' [-Wunused-variable]
+  515 |         int32_t max_steering_right_range = Max_Steering_Right * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:514:17: warning: unused variable 'max_steering_left_range' [-Wunused-variable]
+  514 |         int32_t max_steering_left_range = Max_Steering_Left * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:32:33 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28684	     96	  21152	  49932	   c30c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:34:18 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28684	     96	  21152	  49932	   c30c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:40:43 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:515:16: warning: implicit declaration of function 'abs' [-Wimplicit-function-declaration]
+  515 |         while( abs(current) >= abs(middle))
+      |                ^~~
+../Core/Src/main.c:22:1: note: include '<stdlib.h>' or provide a declaration of 'abs'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <stdlib.h>
+   22 | 
+../Core/Src/main.c:515:20: warning: 'abs' argument 1 promotes to 'int32_t' {aka 'long int'} where 'int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+  515 |         while( abs(current) >= abs(middle))
+      |                    ^~~~~~~
+<built-in>: note: built-in 'abs' declared here
+../Core/Src/main.c:515:36: warning: 'abs' argument 1 promotes to 'int32_t' {aka 'long int'} where 'int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+  515 |         while( abs(current) >= abs(middle))
+      |                                    ^~~~~~
+<built-in>: note: built-in 'abs' declared here
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28700	     96	  21152	  49948	   c31c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:41:08 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28700	     96	  21152	  49948	   c31c	Final.elf
+Finished building: default.size.stdout
+ 
+18:42:56 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28684	     96	  21152	  49932	   c30c	Final.elf
+Finished building: default.size.stdout
+Finished building: Final.hex
+ 
+ 
+Finished building: Final.list
+ 
+18:44:44 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:513:17: warning: unused variable 'middle' [-Wunused-variable]
+  513 |         int32_t middle = ((Max_Steering_Left + Max_Steering_Right) / 2);
+      |                 ^~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28620	     96	  21152	  49868	   c2cc	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:47:14 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28620	     96	  21152	  49868	   c2cc	Final.elf
+Finished building: default.size.stdout
+ 
+18:47:37 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28620	     96	  21152	  49868	   c2cc	Final.elf
+Finished building: default.size.stdout
+ 
+18:49:11 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  28684	     96	  21152	  49932	   c30c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:50:31 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28684	     96	  21152	  49932	   c30c	Final.elf
+Finished building: default.size.stdout
+ 
+18:52:40 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:514:17: warning: unused variable 'max_steering_right_range' [-Wunused-variable]
+  514 |         int32_t max_steering_right_range = Max_Steering_Right * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:513:17: warning: unused variable 'max_steering_left_range' [-Wunused-variable]
+  513 |         int32_t max_steering_left_range = Max_Steering_Left * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:512:17: warning: unused variable 'middle' [-Wunused-variable]
+  512 |         int32_t middle = ((Max_Steering_Left + Max_Steering_Right) / 2);
+      |                 ^~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  30268	     96	  21152	  51516	   c93c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:52:56 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30268	     96	  21152	  51516	   c93c	Final.elf
+Finished building: default.size.stdout
+ 
+18:54:43 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'calibre_steering':
+../Core/Src/main.c:514:17: warning: unused variable 'max_steering_right_range' [-Wunused-variable]
+  514 |         int32_t max_steering_right_range = Max_Steering_Right * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:513:17: warning: unused variable 'max_steering_left_range' [-Wunused-variable]
+  513 |         int32_t max_steering_left_range = Max_Steering_Left * 0.6;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
+arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
+18:55:09 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+18:57:04 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 
+18:57:50 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30332	     96	  21152	  51580	   c97c	Final.elf
+Finished building: default.size.stdout
+ 

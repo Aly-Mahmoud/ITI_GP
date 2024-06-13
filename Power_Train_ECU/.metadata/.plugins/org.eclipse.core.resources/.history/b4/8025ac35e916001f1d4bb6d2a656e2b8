@@ -1,0 +1,80 @@
+/**
+  ******************************************************************************
+  * @file           : Controlling.c
+  * @brief          : Module That Responsible To Control Steering and DC Motor
+  * 				  for RC Car.
+  ******************************************************************************/
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx_hal_tim.h"
+#include "cmsis_os2.h"
+
+void init_CytronDriverDir(void);
+
+// Configure PWM parameters
+#define PWM_FREQUENCY   			10000    // PWM frequency in Hz
+#define PWM_MAX_DUTY    			100      // Maximum PWM duty cycle (0-100%)
+#define BACK_RIGHT_MOTOR_DIR_PIN	GPIO_PIN_14
+#define BACK_LEFT_MOTOR_DIR_PIN		GPIO_PIN_15
+#define DIR_FWD						0
+#define DIR_BACK					1
+
+enum{
+	CAR_FORWARD,
+	CAR_BACKWARD,
+	CAR_STOP
+};
+
+enum{
+	BACK,
+	one,
+	two,
+	three,
+	four,
+}Clutch_Values;
+
+typedef struct {
+	uint8_t header;
+    uint16_t steering;
+    uint8_t pedal_gas;
+    uint8_t pedal_brake;
+    uint8_t clutch;
+    uint8_t buttons;
+    uint8_t crc;
+} steering_frame_t;
+
+TIM_OC_InitTypeDef sConfigOC[3];
+extern TIM_HandleTypeDef htim1;
+extern volatile steering_frame_t steering_data;
+uint8_t carSpeed_R = 0;
+
+void controllingSM(void)
+{
+	switch(steering_data.clutch)
+	{
+	case BACK:
+		HAL_GPIO_WritePin(GPIOB, BACK_RIGHT_MOTOR_DIR_PIN, DIR_BACK);
+		HAL_GPIO_WritePin(GPIOB, BACK_LEFT_MOTOR_DIR_PIN, DIR_BACK);
+
+	}
+}
+
+void Controlling()
+{
+	init_CytronDriverDir();
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+	while(1)
+	{
+
+	}
+}
+
+
+void init_CytronDriverDir(void)
+{
+	HAL_GPIO_WritePin(GPIOB, BACK_RIGHT_MOTOR_DIR_PIN, DIR_FWD);
+	HAL_GPIO_WritePin(GPIOB, BACK_LEFT_MOTOR_DIR_PIN, DIR_FWD);
+}
+
+
+

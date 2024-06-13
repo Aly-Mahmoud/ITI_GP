@@ -1,0 +1,54 @@
+/**
+  ******************************************************************************
+  * @file           : Communication.c
+  * @brief          : Module That Responsible To Transfer Data To and From Power
+  * 				  Train ECU
+  ******************************************************************************/
+
+#include "stm32f4xx_hal_uart.h"
+
+#define BUFFER_SIZE		8
+
+typedef struct{
+	uint8_t header;
+	uint16_t steering;
+	uint8_t pedal_gas;
+	uint8_t pedal_brake;
+	uint8_t clutch;
+	uint8_t buttons;
+	uint8_t crc;
+}steering_frame_t;
+
+
+UART_HandleTypeDef huart2;
+QueueHandle_t uartQueue; // Queue to hold received data
+
+// UART receive complete callback function
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    uint8_t rxBuffer[BUFFER_SIZE]; // Adjust size as per your data size
+
+    if (huart->Instance == USART2) {
+        // Receive data into the buffer
+        HAL_UART_Receive_IT(&huart1, rxBuffer, sizeof(rxBuffer));
+
+        // Send received data to the queue
+        xQueueSendFromISR(uartQueue, rxBuffer, &xHigherPriorityTaskWoken);
+    }
+
+    // If sending to queue unblocks a higher priority task, yield to it
+    if (xHigherPriorityTaskWoken == pdTRUE) {
+        portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+    }
+}
+
+void communication_task(void)
+{
+
+	while(1)
+	{
+
+	}
+}
+
+

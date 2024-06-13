@@ -1,0 +1,22 @@
+/**
+  ******************************************************************************
+  * @file           : Communication.c
+  * @brief          : Module That Responsible To Transfer Data To and From Power
+  * 				  Train ECU
+  ******************************************************************************/
+
+#include "stm32f4xx_hal_uart.h"
+
+
+typedef struct{
+	uint8_t header;
+	uint16_t steering;
+	uint8_t pedal_gas;
+	uint8_t pedal_brake;
+	uint8_t clutch;
+	uint8_t buttons;
+	uint8_t crc;
+}steering_frame_t;
+
+
+steering_frame_t steering_frame;
