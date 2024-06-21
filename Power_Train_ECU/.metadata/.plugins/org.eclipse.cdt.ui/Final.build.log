@@ -1,13 +1,34 @@
-18:57:50 **** Incremental Build of configuration Debug for project Final ****
+15:30:22 **** Incremental Build of configuration Debug for project Final ****
 make -j8 all 
 gdawrf-2
 make[1]: [makefile:97: pre-build] Error -1 (ignored)
  
+arm-none-eabi-gcc "../Core/Src/Controlling.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Controlling.d" -MT"Core/Src/Controlling.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Controlling.o"
+../Core/Src/Controlling.c: In function 'controllingSM':
+../Core/Src/Controlling.c:104:18: warning: variable 'pedal_value' set but not used [-Wunused-but-set-variable]
+  104 |         uint32_t pedal_value = abs_diff(map_value(uart_rx_buffer[PEDAL_GAS_IDX],PEDAL_GAS_MIN,PEDAL_GAS_MAX,0,100)\
+      |                  ^~~~~~~~~~~
+../Core/Src/Controlling.c: At top level:
+../Core/Src/Controlling.c:273:13: warning: 'setSteeringAngle' defined but not used [-Wunused-function]
+  273 | static void setSteeringAngle(void)
+      |             ^~~~~~~~~~~~~~~~
+../Core/Src/Controlling.c:220:13: warning: 'checkClutchValue' defined but not used [-Wunused-function]
+  220 | static void checkClutchValue(void)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\ITI\Graduation_Project\Final_Proj\Final\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final.elf
+ 
 arm-none-eabi-size  Final.elf 
+arm-none-eabi-objdump -h -S Final.elf  > "Final.list"
+arm-none-eabi-objcopy  -O ihex Final.elf  "Final.hex"
    text	   data	    bss	    dec	    hex	filename
-  30332	     96	  21152	  51580	   c97c	Final.elf
+  28544	     96	  21232	  49872	   c2d0	Final.elf
 Finished building: default.size.stdout
  
+Finished building: Final.hex
+ 
+Finished building: Final.list
+ 
 
-18:57:51 Build Finished. 0 errors, 0 warnings. (took 925ms)
+15:30:24 Build Finished. 0 errors, 3 warnings. (took 1s.542ms)
 

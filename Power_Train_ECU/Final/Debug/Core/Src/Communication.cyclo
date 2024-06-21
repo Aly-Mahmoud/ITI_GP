@@ -1,6 +1,2 @@
-../Core/Src/Communication.c:30:6:Parse_Steering_Data	1
-../Core/Src/Communication.c:41:6:UART_Receive_Header_IT	1
-../Core/Src/Communication.c:47:6:UART_Receive_Data_IT	1
-../Core/Src/Communication.c:53:6:HAL_UART_RxCpltCallback	4
-../Core/Src/Communication.c:83:6:Communication_Init	1
-../Core/Src/Communication.c:104:6:Communication	1
+../Core/Src/Communication.c:40:6:Parse_Steering_Data	1
+../Core/Src/Communication.c:120:6:Communication	5

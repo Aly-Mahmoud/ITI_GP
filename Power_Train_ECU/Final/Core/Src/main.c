@@ -36,6 +36,8 @@
 #define STEERING_MOTOR				2
 #define STEERING_RIGHT				0
 #define STEERING_LEFT				1
+#define CORRECTIVE_VALUE			500
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -46,7 +48,6 @@
 /* Private variables ---------------------------------------------------------*/
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim3;
-
 
 UART_HandleTypeDef huart2;
 
@@ -71,17 +72,27 @@ const osThreadAttr_t ControllingTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityRealtime,
 };
-/* Definitions for ADC_Task */
-osThreadId_t ADC_TaskHandle;
-const osThreadAttr_t ADC_Task_attributes = {
-  .name = "ADC_Task",
+/* Definitions for GetEncoderValue */
+osThreadId_t GetEncoderValueHandle;
+const osThreadAttr_t GetEncoderValue_attributes = {
+  .name = "GetEncoderValue",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityRealtime,
 };
-/* Definitions for Steering_Data_Mutex */
-osMutexId_t Steering_Data_MutexHandle;
-const osMutexAttr_t Steering_Data_Mutex_attributes = {
-  .name = "Steering_Data_Mutex"
+/* Definitions for Semaphore1 */
+osSemaphoreId_t Semaphore1Handle;
+const osSemaphoreAttr_t Semaphore1_attributes = {
+  .name = "Semaphore1"
+};
+/* Definitions for Semaphore2 */
+osSemaphoreId_t Semaphore2Handle;
+const osSemaphoreAttr_t Semaphore2_attributes = {
+  .name = "Semaphore2"
+};
+/* Definitions for Semaphore3 */
+osSemaphoreId_t Semaphore3Handle;
+const osSemaphoreAttr_t Semaphore3_attributes = {
+  .name = "Semaphore3"
 };
 /* USER CODE BEGIN PV */
 int32_t Max_Steering_Right = 0;
@@ -146,13 +157,20 @@ int main(void)
 
   /* Init scheduler */
   osKernelInitialize();
-  /* Create the mutex(es) */
-  /* creation of Steering_Data_Mutex */
-  Steering_Data_MutexHandle = osMutexNew(&Steering_Data_Mutex_attributes);
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
   /* USER CODE END RTOS_MUTEX */
+
+  /* Create the semaphores(s) */
+  /* creation of Semaphore1 */
+  Semaphore1Handle = osSemaphoreNew(1, 0, &Semaphore1_attributes);
+
+  /* creation of Semaphore2 */
+  Semaphore2Handle = osSemaphoreNew(1, 1, &Semaphore2_attributes);
+
+  /* creation of Semaphore3 */
+  Semaphore3Handle = osSemaphoreNew(1, 0, &Semaphore3_attributes);
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
@@ -174,10 +192,10 @@ int main(void)
   Communication_THandle = osThreadNew(Communication, NULL, &Communication_T_attributes);
 
   /* creation of ControllingTask */
-  //ControllingTaskHandle = osThreadNew(Controlling, NULL, &ControllingTask_attributes);
+  ControllingTaskHandle = osThreadNew(Controlling, NULL, &ControllingTask_attributes);
 
-  /* creation of ADC_Task */
-  ADC_TaskHandle = osThreadNew(getSteeringPosition, NULL, &ADC_Task_attributes);
+  /* creation of GetEncoderValue */
+  //GetEncoderValueHandle = osThreadNew(getSteeringPosition, NULL, &GetEncoderValue_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -448,13 +466,13 @@ void calibre_steering(void)
     HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
 	while(counter <= 5)
 	{
-		current = (int32_t)(int16_t)TIM3->CNT;
+		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 		prev = current;
 		HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_RIGHT);
 		sConfigOC.Pulse = 35000;
 		HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
 		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-		current = (int32_t)(int16_t)TIM3->CNT;
+		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 		if( current == prev || current == prev+1 || current == prev-1)
 		{
 			counter++;
@@ -476,13 +494,13 @@ void calibre_steering(void)
 	counter = 0;
 	while(counter <= 5)
 	{
-		current = (int32_t)(int16_t)TIM3->CNT;
+		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 		prev = current;
 		HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_LEFT);
 		sConfigOC.Pulse = 35000;
 		HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
 		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-		current = (int32_t)(int16_t)TIM3->CNT;
+		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 		if( current == prev || current == prev+1 || current == prev-1)
 		{
 			counter++;
@@ -510,16 +528,14 @@ void calibre_steering(void)
 //	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 
 	int32_t middle = ((Max_Steering_Left + Max_Steering_Right) / 2);
-	int32_t max_steering_left_range = Max_Steering_Left * 0.6;
-	int32_t max_steering_right_range = Max_Steering_Right * 0.6;
-	while( current >= middle)
+	while( current >= middle + 40)
 	{
-		current = (int32_t)(int16_t)TIM3->CNT;
+		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 		HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_RIGHT);
 		sConfigOC.Pulse = 35000;
 		HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
 		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-		current = (int32_t)(int16_t)TIM3->CNT;
+		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 	}
 	sConfigOC.Pulse = 0;
 	HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
