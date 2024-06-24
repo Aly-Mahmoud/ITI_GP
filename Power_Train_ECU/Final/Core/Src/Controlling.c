@@ -30,9 +30,9 @@
 #define STEERING_LEFT				1
 #define CLUTCH_INCREMENT_MASK		(uint8_t) 1
 #define CLUTCH_DECREMENT_MASK		(uint8_t) 2
-#define PEDAL_GAS_MAX				255
+#define PEDAL_GAS_MAX				64
 #define PEDAL_GAS_MIN				0
-#define PEDAL_BRAKE_MAX				255
+#define PEDAL_BRAKE_MAX				64
 #define PEDAL_BRAKE_MIN				0
 #define MAX_STEERING_VALUE			255
 #define MIN_STEERING_VALUE			0
@@ -90,7 +90,7 @@ void controllingSM(void);
 static void checkClutchValue(void);
 static int32_t map_value(int32_t value, int32_t in_min, int32_t in_max, int32_t out_min, int32_t out_max);
 static void setSteeringAngle(void);
-
+static void checkSteering(void);
 
 void controllingSM(void)
 {
@@ -167,27 +167,6 @@ void controllingSM(void)
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
 
-	static uint8_t prev = 0;
-
-
-	if(uart_rx_buffer[STEERING_IDX] >= STEERING_MAX_MID || uart_rx_buffer[STEERING_IDX] <= STEERING_MIN_MID)
-	{
-		if(uart_rx_buffer[STEERING_IDX] != prev)
-		{
-			setSteeringAngle();
-			prev = uart_rx_buffer[STEERING_IDX];
-		}
-		else
-		{
-			// Stop the motor
-			sConfigOC[STEERING_MOTOR].Pulse = 0;
-			HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC[STEERING_MOTOR], TIM_CHANNEL_3);
-			HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-		}
-
-
-	}
-
 }
 
 
@@ -204,6 +183,7 @@ void Controlling(void)
     	if( xSemaphoreTake(Semaphore2Handle, HAL_MAX_DELAY) == pdTRUE)
     	{
     		controllingSM();
+    		checkSteering();
             xSemaphoreGive(Semaphore1Handle);
     	}
     }
@@ -362,6 +342,31 @@ static void setSteeringAngle(void)
     sConfigOC[STEERING_MOTOR].Pulse = 0;
     HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC[STEERING_MOTOR], TIM_CHANNEL_3);
     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+}
+
+static void checkSteering(void)
+{
+	static uint8_t prev = 0;
+
+
+	if(uart_rx_buffer[STEERING_IDX] >= STEERING_MAX_MID || uart_rx_buffer[STEERING_IDX] <= STEERING_MIN_MID)
+	{
+		if(uart_rx_buffer[STEERING_IDX] != prev)
+		{
+			setSteeringAngle();
+			prev = uart_rx_buffer[STEERING_IDX];
+		}
+		else
+		{
+			// Stop the motor
+			sConfigOC[STEERING_MOTOR].Pulse = 0;
+			HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC[STEERING_MOTOR], TIM_CHANNEL_3);
+			HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+		}
+
+
+	}
+
 }
 
 

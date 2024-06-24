@@ -1,8 +1,9 @@
 ../Core/Src/Controlling.c:95:6:controllingSM	32	static
-../Core/Src/Controlling.c:194:6:Controlling	8	static
-../Core/Src/Controlling.c:212:6:setMotorDirection	16	static
-../Core/Src/Controlling.c:218:13:pwm_init	16	static
-../Core/Src/Controlling.c:234:17:abs_diff	16	static
-../Core/Src/Controlling.c:239:13:checkClutchValue	8	static
-../Core/Src/Controlling.c:313:16:map_value	32	static
-../Core/Src/Controlling.c:330:13:setSteeringAngle	24	static
+../Core/Src/Controlling.c:173:6:Controlling	8	static
+../Core/Src/Controlling.c:192:6:setMotorDirection	16	static
+../Core/Src/Controlling.c:198:13:pwm_init	16	static
+../Core/Src/Controlling.c:214:17:abs_diff	16	static
+../Core/Src/Controlling.c:219:13:checkClutchValue	8	static
+../Core/Src/Controlling.c:293:16:map_value	32	static
+../Core/Src/Controlling.c:310:13:setSteeringAngle	24	static
+../Core/Src/Controlling.c:347:13:checkSteering	8	static
