@@ -464,7 +464,7 @@ void calibre_steering(void)
 	sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
 	sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
     HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
-	while(counter <= 5)
+	while(counter <= 3)
 	{
 		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 		prev = current;
@@ -492,7 +492,7 @@ void calibre_steering(void)
 	HAL_Delay(500);
 
 	counter = 0;
-	while(counter <= 5)
+	while(counter <= 3)
 	{
 		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 		prev = current;

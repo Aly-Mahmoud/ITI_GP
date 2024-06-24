@@ -40,12 +40,12 @@
 #define STEERING_MAX_MID			130
 #define STEERING_MOTOR_SPEED		20000
 #define MAX_PWM_VALUE				65535
-#define BUFFER_SIZE					5
+#define BUFFER_SIZE					8
 #define HEADER_IDX					0
-#define STEERING_IDX				1
-#define PEDAL_GAS_IDX				2
-#define PEDAL_BRAKE_IDX				3
-#define BUTTONS_IDX					4
+#define STEERING_IDX				3
+#define PEDAL_GAS_IDX				4
+#define PEDAL_BRAKE_IDX				5
+#define BUTTONS_IDX					6
 #define CORRECTIVE_VALUE			500
 
 
@@ -115,6 +115,9 @@ void controllingSM(void)
 	HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC[BACK_LEFT_MOTOR], TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);*/
+
+
+
 	checkClutchValue();
 	switch (clutch_value)
 	{
@@ -153,17 +156,38 @@ void controllingSM(void)
 			break;
 	}
 
-
-	sConfigOC[BACK_RIGHT_MOTOR].Pulse = (pwm_value_Back_Right / 100.0)* MAX_PWM_VALUE;
+	/*0.5 for motor safety+*/
+	sConfigOC[BACK_RIGHT_MOTOR].Pulse =  ((pwm_value_Back_Right / 100.0)* MAX_PWM_VALUE);
 	HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC[BACK_RIGHT_MOTOR], TIM_CHANNEL_1);
 
-	sConfigOC[BACK_LEFT_MOTOR].Pulse = ((pwm_value_Back_Left / 100.0))* MAX_PWM_VALUE;
+	sConfigOC[BACK_LEFT_MOTOR].Pulse =  (((pwm_value_Back_Left / 100.0))* MAX_PWM_VALUE);
 	HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC[BACK_LEFT_MOTOR], TIM_CHANNEL_2);
 
 
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-    setSteeringAngle();
+
+	static uint8_t prev = 0;
+
+
+	if(uart_rx_buffer[STEERING_IDX] >= STEERING_MAX_MID || uart_rx_buffer[STEERING_IDX] <= STEERING_MIN_MID)
+	{
+		if(uart_rx_buffer[STEERING_IDX] != prev)
+		{
+			setSteeringAngle();
+			prev = uart_rx_buffer[STEERING_IDX];
+		}
+		else
+		{
+			// Stop the motor
+			sConfigOC[STEERING_MOTOR].Pulse = 0;
+			HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC[STEERING_MOTOR], TIM_CHANNEL_3);
+			HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+		}
+
+
+	}
+
 }
 
 
@@ -235,19 +259,20 @@ static void checkClutchValue(void)
 }
 
 
-
 //static void checkClutchValue(void)
 //{
-//    uint8_t current;
-//    static uint8_t prev = 0; // Persistent variable to track previous state across function calls
+//    uint8_t current_increment;
+//    uint8_t current_decrement;
+//    static uint8_t prev_increment = 0; // Persistent variable to track previous increment state
+//    static uint8_t prev_decrement = 0; // Persistent variable to track previous decrement state
 //
 //    // Check for clutch increment
-//    if ((uart_rx_buffer[BUTTONS_IDX] & CLUTCH_INCREMENT_MASK) == 1)
-//    {
-//        current = uart_rx_buffer[BUTTONS_IDX] & CLUTCH_INCREMENT_MASK;
+//    current_increment = uart_rx_buffer[BUTTONS_IDX] & CLUTCH_INCREMENT_MASK;
 //
+//    if (current_increment == CLUTCH_INCREMENT_MASK) // Assuming CLUTCH_INCREMENT_MASK is 1 when the increment button is pressed
+//    {
 //        // Check for button release
-//        if (current == 0 && prev == 1)
+//        if (current_increment != prev_increment)
 //        {
 //            clutch_value++;
 //            if (clutch_value > 5)
@@ -255,32 +280,35 @@ static void checkClutchValue(void)
 //                clutch_value = 5;
 //            }
 //        }
-//
-//        prev = current;
+//        prev_increment = current_increment;
 //    }
-//    // Check for clutch decrement
-//    else if ((uart_rx_buffer[BUTTONS_IDX] & CLUTCH_DECREMENT_MASK) >> 1 == 1 )
+//    else
 //    {
-//        current = (uart_rx_buffer[BUTTONS_IDX] & CLUTCH_DECREMENT_MASK) >> 1;
+//        prev_increment = 0; // Reset prev_increment if the increment button is not pressed
+//    }
 //
+//    // Check for clutch decrement
+//    current_decrement = (uart_rx_buffer[BUTTONS_IDX] & CLUTCH_DECREMENT_MASK) >> 1;
+//
+//    if (current_decrement == (CLUTCH_DECREMENT_MASK >> 1)) // Assuming CLUTCH_DECREMENT_MASK is 2 when the decrement button is pressed
+//    {
 //        // Check for button release
-//        if (current == 0 && prev == 1)
+//        if (current_decrement != prev_decrement)
 //        {
 //            clutch_value--;
-//            if (clutch_value == 255) // assuming clutch_value is unsigned
+//            if (clutch_value > 5) // assuming clutch_value is unsigned and will wrap around to 255 when decremented from 0
 //            {
 //                clutch_value = 0;
 //            }
 //        }
-//
-//        prev = current;
+//        prev_decrement = current_decrement;
 //    }
 //    else
 //    {
-//        // Reset prev to 0 if no button is pressed
-//        prev = 0;
+//        prev_decrement = 0; // Reset prev_decrement if the decrement button is not pressed
 //    }
 //}
+
 
 static int32_t map_value(int32_t value, int32_t in_min, int32_t in_max, int32_t out_min, int32_t out_max)
 {
@@ -301,15 +329,15 @@ static int32_t map_value(int32_t value, int32_t in_min, int32_t in_max, int32_t 
 
 static void setSteeringAngle(void)
 {
-	//Max steering left is the min because the left value of steerin is 0
-    int32_t steering_mapped_value = map_value(uart_rx_buffer[STEERING_IDX], MIN_STEERING_VALUE, MAX_STEERING_VALUE, Max_Steering_Left, Max_Steering_Right);
+	//Max steering left is the min because the left value of steering is 0
+    int32_t steering_mapped_value = map_value((uart_rx_buffer[STEERING_IDX]), MIN_STEERING_VALUE, MAX_STEERING_VALUE, Max_Steering_Left + 80, Max_Steering_Right);
     int32_t currentEncoderValue = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
+
 
     if (currentEncoderValue < steering_mapped_value)
     {        /* Move left */
-        while (currentEncoderValue < steering_mapped_value && currentEncoderValue <= (Max_Steering_Left - 20))
+        while (currentEncoderValue < (steering_mapped_value - 5) && currentEncoderValue <= (Max_Steering_Left + 80))
         {
-        	currentEncoderValue = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
             HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_LEFT);
             sConfigOC[STEERING_MOTOR].Pulse = STEERING_MOTOR_SPEED;
             HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC[STEERING_MOTOR], TIM_CHANNEL_3);
@@ -320,9 +348,8 @@ static void setSteeringAngle(void)
     else if (currentEncoderValue > steering_mapped_value)
     {
         /* Move right */
-        while ((((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE) > steering_mapped_value && (((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE) >= (Max_Steering_Right + 60))
+        while (currentEncoderValue > (steering_mapped_value + 5) && currentEncoderValue >= (Max_Steering_Right + 50))
         {
-        	currentEncoderValue = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
             HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_RIGHT);
             sConfigOC[STEERING_MOTOR].Pulse = STEERING_MOTOR_SPEED;
             HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC[STEERING_MOTOR], TIM_CHANNEL_3);

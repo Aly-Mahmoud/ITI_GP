@@ -10,12 +10,17 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "semphr.h"
+#include <string.h>
 
 
 
 
-#define BUFFER_SIZE 5
-#define VALID_HEADER 0x55
+#define HEADER_SIZE 3U
+#define VALID_HEADER {0xFF, 0xFF, 0xFF}
+#define BUFFER_SIZE	8
+#define POLYNOMINAL 	(uint8_t) 0x07
+#define INITVALUE	    (uint8_t) 0x00
+#define FINAL_XOR_VALUE	(uint8_t) 0x00
 
 typedef struct {
 	uint8_t header;
@@ -29,23 +34,16 @@ volatile steering_frame_t steering_data;
 extern UART_HandleTypeDef huart2;
 extern osSemaphoreId_t Semaphore1Handle;
 extern osSemaphoreId_t Semaphore2Handle;
-extern osSemaphoreId_t Semaphore3Handle;
-
-
-
-
 
 uint8_t uart_rx_buffer[BUFFER_SIZE];
 
+
 void Parse_Steering_Data(void)
 {
-    steering_data.header = uart_rx_buffer[0];
-    steering_data.steering = uart_rx_buffer[1];
-    steering_data.pedal_gas = uart_rx_buffer[2];
-    steering_data.pedal_brake = uart_rx_buffer[3];
-    //steering_data.clutch = uart_rx_buffer[5];
-    steering_data.buttons = uart_rx_buffer[4];
-    //steering_data.crc = uart_rx_buffer[6];
+    steering_data.steering = uart_rx_buffer[3];
+    steering_data.pedal_gas = uart_rx_buffer[4];
+    steering_data.pedal_brake = uart_rx_buffer[5];
+    steering_data.buttons = uart_rx_buffer[6];
 }
 
 //void UART_Receive_Header_IT(void)
@@ -117,48 +115,78 @@ void Parse_Steering_Data(void)
 //	UART_Receive_Data_IT();
 //}
 
+
+uint8_t calculate_crc(uint8_t *data, size_t length) {
+    uint8_t crc = 0;
+    for (size_t i = 0; i < length; i++) {
+        crc += data[i];
+    }
+    return crc;
+}
+
+// Function to check the received data with CRC
+uint8_t check_crc(uint8_t *data, size_t length) {
+    if (length < 2) {
+        // Data is too short to contain a CRC
+        return 0;
+    }
+
+    // Extract the CRC from the last byte
+    uint8_t received_crc = data[length - 1];
+
+    // Calculate the CRC over the data (excluding the last byte)
+    uint8_t calculated_crc = calculate_crc(data, length - 1);
+
+    // Compare the calculated CRC with the received CRC
+    return (calculated_crc == received_crc);
+}
+
 void Communication(void)
 {
     HAL_StatusTypeDef uart_status;
-    uint8_t header = 0; // Initialize header to a known value
+    uint8_t header[HEADER_SIZE] = {0}; // Initialize header to a known value
+    uint8_t expected_header[HEADER_SIZE] = VALID_HEADER;
 
     for (;;)
     {
+		static uint8_t crc_check = 0;
+		if (xSemaphoreTake(Semaphore1Handle, HAL_MAX_DELAY) == pdTRUE)
+		{
+			do
+			{
+    	        {
+    	            // Step 1: Receive the header bytes
+    	            do
+    	            {
+    	                uart_status = HAL_UART_Receive(&huart2, header, HEADER_SIZE, HAL_MAX_DELAY);
+    	            }
+    	            while (memcmp(header, expected_header, HEADER_SIZE) != 0);
 
-        if (xSemaphoreTake(Semaphore1Handle, HAL_MAX_DELAY) == pdTRUE)
-        {
-            // Step 1: Receive the header byte
-            do
-            {
-                uart_status = HAL_UART_Receive(&huart2, &header, 1, HAL_MAX_DELAY);
-            }
-            while (header != VALID_HEADER);
+    		            if (uart_status == HAL_OK && memcmp(header, expected_header, HEADER_SIZE) == 0)
+    		            {
+    		                // Step 2: Receive the remaining bytes if the header is valid
+    		                uart_status = HAL_UART_Receive(&huart2, uart_rx_buffer + HEADER_SIZE, BUFFER_SIZE, HAL_MAX_DELAY);
 
-            if (uart_status == HAL_OK && header == VALID_HEADER)
-            {
-                // Step 2: Receive the remaining bytes if the header is valid
-                HAL_UART_Receive(&huart2, uart_rx_buffer+1 , BUFFER_SIZE , HAL_MAX_DELAY);
 
-                // Set the first byte to the header
-                 uart_rx_buffer[0] = header;
+    		                if (uart_status == HAL_OK)
+    		                {
+    		                    // Copy the header to the buffer
+    		                    memcpy(uart_rx_buffer, header, HEADER_SIZE);
+    		                    crc_check =   check_crc(uart_rx_buffer , BUFFER_SIZE);
+    		                    // Process the received data
+    		                    Parse_Steering_Data();
+    		                }
+    		            }
 
-                 // Process the received data
-                 Parse_Steering_Data();
-                 //Zero the buffer for the new data
-                 /*for(uint8_t i = 0; i < BUFFER_SIZE; i++)
-                 {
-                    uart_rx_buffer[i] = 0;
-                 }*/
+    		        }
 
-            }
-            else
-            {
-                /**/
-            }
+    	}while (crc_check == 0);
 
-            // Give the semaphore to signal that the buffer is ready
-            xSemaphoreGive(Semaphore2Handle);
-        }
+    	crc_check = 0;
+    	xSemaphoreGive(Semaphore2Handle);
+    }
     }
 }
+
+
 
