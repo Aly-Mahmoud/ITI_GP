@@ -469,7 +469,7 @@ void calibre_steering(void)
 		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 		prev = current;
 		HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_RIGHT);
-		sConfigOC.Pulse = 20000;
+		sConfigOC.Pulse = 65000;
 		HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
 		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
@@ -497,7 +497,7 @@ void calibre_steering(void)
 		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 		prev = current;
 		HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_LEFT);
-		sConfigOC.Pulse = 20000;
+		sConfigOC.Pulse = 65000;
 		HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
 		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
@@ -532,7 +532,7 @@ void calibre_steering(void)
 	{
 		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 		HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_RIGHT);
-		sConfigOC.Pulse = 20000;
+		sConfigOC.Pulse = 40000;
 		HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
 		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
