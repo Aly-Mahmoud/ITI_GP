@@ -1,2 +1,4 @@
-../Core/Src/Communication.c:40:6:Parse_Steering_Data	4	static
-../Core/Src/Communication.c:120:6:Communication	16	static
+../Core/Src/Communication.c:43:6:Parse_Steering_Data	4	static
+../Core/Src/Communication.c:121:9:calculate_crc	24	static
+../Core/Src/Communication.c:130:9:check_crc	24	static
+../Core/Src/Communication.c:146:6:Communication	16	static

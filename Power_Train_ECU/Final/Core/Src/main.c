@@ -46,10 +46,12 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim3;
 
 UART_HandleTypeDef huart2;
+UART_HandleTypeDef huart6;
 
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
@@ -105,6 +107,7 @@ static void MX_GPIO_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM3_Init(void);
+static void MX_USART6_UART_Init(void);
 void StartDefaultTask(void *argument);
 extern void Communication(void *argument);
 extern void Controlling(void *argument);
@@ -151,6 +154,7 @@ int main(void)
   MX_TIM1_Init();
   MX_USART2_UART_Init();
   MX_TIM3_Init();
+  MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
   calibre_steering();
   /* USER CODE END 2 */
@@ -164,10 +168,10 @@ int main(void)
 
   /* Create the semaphores(s) */
   /* creation of Semaphore1 */
-  Semaphore1Handle = osSemaphoreNew(1, 0, &Semaphore1_attributes);
+  Semaphore1Handle = osSemaphoreNew(1, 1, &Semaphore1_attributes);
 
   /* creation of Semaphore2 */
-  Semaphore2Handle = osSemaphoreNew(1, 1, &Semaphore2_attributes);
+  Semaphore2Handle = osSemaphoreNew(1, 0, &Semaphore2_attributes);
 
   /* creation of Semaphore3 */
   Semaphore3Handle = osSemaphoreNew(1, 0, &Semaphore3_attributes);
@@ -317,10 +321,6 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
-  {
-    Error_Handler();
-  }
   sBreakDeadTimeConfig.OffStateRunMode = TIM_OSSR_DISABLE;
   sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
   sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
@@ -422,6 +422,39 @@ static void MX_USART2_UART_Init(void)
 }
 
 /**
+  * @brief USART6 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART6_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART6_Init 0 */
+
+  /* USER CODE END USART6_Init 0 */
+
+  /* USER CODE BEGIN USART6_Init 1 */
+
+  /* USER CODE END USART6_Init 1 */
+  huart6.Instance = USART6;
+  huart6.Init.BaudRate = 9600;
+  huart6.Init.WordLength = UART_WORDLENGTH_8B;
+  huart6.Init.StopBits = UART_STOPBITS_1;
+  huart6.Init.Parity = UART_PARITY_NONE;
+  huart6.Init.Mode = UART_MODE_TX_RX;
+  huart6.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart6.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart6) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART6_Init 2 */
+
+  /* USER CODE END USART6_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -439,12 +472,22 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin : PB1 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
   /*Configure GPIO pins : PB13 PB14 PB15 */
   GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI1_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(EXTI1_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 
@@ -464,12 +507,12 @@ void calibre_steering(void)
 	sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
 	sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
     HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
-	while(counter <= 5)
+	while(counter <= 3)
 	{
 		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 		prev = current;
 		HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_RIGHT);
-		sConfigOC.Pulse = 35000;
+		sConfigOC.Pulse = 65000;
 		HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
 		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
@@ -481,7 +524,7 @@ void calibre_steering(void)
 		{
 			counter = 0;
 		}
-		HAL_Delay(100);
+		HAL_Delay(200);
 	}
 	sConfigOC.Pulse = 0;
 	HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
@@ -492,12 +535,12 @@ void calibre_steering(void)
 	HAL_Delay(500);
 
 	counter = 0;
-	while(counter <= 5)
+	while(counter <= 3)
 	{
 		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 		prev = current;
 		HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_LEFT);
-		sConfigOC.Pulse = 35000;
+		sConfigOC.Pulse = 65000;
 		HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
 		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
@@ -509,7 +552,7 @@ void calibre_steering(void)
 		{
 			counter = 0;
 		}
-		HAL_Delay(100);
+		HAL_Delay(200);
 	}
 	sConfigOC.Pulse = 0;
 	HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
@@ -528,11 +571,11 @@ void calibre_steering(void)
 //	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 
 	int32_t middle = ((Max_Steering_Left + Max_Steering_Right) / 2);
-	while( current >= middle + 40)
+	while( current >= middle )
 	{
 		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 		HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_RIGHT);
-		sConfigOC.Pulse = 35000;
+		sConfigOC.Pulse = 40000;
 		HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
 		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
