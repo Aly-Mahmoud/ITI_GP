@@ -36,6 +36,7 @@
 #define STEERING_MOTOR				2
 #define STEERING_RIGHT				0
 #define STEERING_LEFT				1
+/*For Negative readings */
 #define CORRECTIVE_VALUE			500
 
 /* USER CODE END PD */
@@ -136,7 +137,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+	HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -491,100 +492,134 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 
+    GPIO_InitStruct.Pin = GPIO_PIN_0;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+
+    GPIO_InitStruct.Pin = GPIO_PIN_2;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+
+    GPIO_InitStruct.Pin = GPIO_PIN_10;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
+/**
+ * @brief Calibrates the steering system by determining the maximum left and right positions.
+ *
+ * This function performs a calibration routine for the steering system by moving the
+ * steering motor to the extreme left and right positions, and then to the middle position.
+ * It uses an incremental counter to ensure the motor has reached each position reliably.
+ * After calibration, it sets the global variables Max_Steering_Left and Max_Steering_Right
+ * to the calibrated values.
+ */
 void calibre_steering(void)
 {
-	int32_t current = 0;
-	int32_t prev = 0;
-	uint8_t counter = 0;
-	TIM_OC_InitTypeDef sConfigOC;
-	HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
-	sConfigOC.OCMode = TIM_OCMODE_PWM1;
-	sConfigOC.Pulse = 0;
-	sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-	sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+    int32_t current = 0;           // Current encoder value
+    int32_t prev = 0;              // Previous encoder value
+    uint8_t counter = 0;           // Counter to ensure motor position reliability
+    TIM_OC_InitTypeDef sConfigOC;  // PWM configuration structure
+
+    // Initialize encoder and PWM configuration
+    HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
+    sConfigOC.OCMode = TIM_OCMODE_PWM1;
+    sConfigOC.Pulse = 0;
+    sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+    sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
     HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
-	while(counter <= 3)
-	{
-		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
-		prev = current;
-		HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_RIGHT);
-		sConfigOC.Pulse = 65000;
-		HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
-		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
-		if( current == prev || current == prev+1 || current == prev-1)
-		{
-			counter++;
-		}
-		else
-		{
-			counter = 0;
-		}
-		HAL_Delay(200);
-	}
-	sConfigOC.Pulse = 0;
-	HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 
-	Max_Steering_Right = current;
+    // Calibrate maximum right steering position
+    while (counter <= 3)
+    {
+        current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
+        prev = current;
+        HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_RIGHT);
+        sConfigOC.Pulse = 65000;
+        HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
+        HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+        current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
 
-	HAL_Delay(500);
+        // Check if motor reached the target position
+        if (current == prev || current == prev + 1 || current == prev - 1)
+        {
+            counter++;
+        }
+        else
+        {
+            counter = 0;
+        }
+        HAL_Delay(200);
+    }
 
-	counter = 0;
-	while(counter <= 3)
-	{
-		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
-		prev = current;
-		HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_LEFT);
-		sConfigOC.Pulse = 65000;
-		HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
-		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
-		if( current == prev || current == prev+1 || current == prev-1)
-		{
-			counter++;
-		}
-		else
-		{
-			counter = 0;
-		}
-		HAL_Delay(200);
-	}
-	sConfigOC.Pulse = 0;
-	HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+    // Stop PWM and record maximum right steering position
+    sConfigOC.Pulse = 0;
+    HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+    Max_Steering_Right = current;
+    HAL_Delay(500);
 
-	Max_Steering_Left = current;
-	HAL_Delay(500);
-//	HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_RIGHT);
-//	sConfigOC.Pulse = 20000;
-//	HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
-//	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-//
-//	HAL_Delay(500);
-//	sConfigOC.Pulse = 0;
-//	HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
-//	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+    counter = 0;
 
-	int32_t middle = ((Max_Steering_Left + Max_Steering_Right) / 2);
-	while( current >= middle )
-	{
-		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
-		HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_RIGHT);
-		sConfigOC.Pulse = 40000;
-		HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
-		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-		current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
-	}
-	sConfigOC.Pulse = 0;
-	HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+    // Calibrate maximum left steering position
+    while (counter <= 3)
+    {
+        current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
+        prev = current;
+        HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_LEFT);
+        sConfigOC.Pulse = 65000;
+        HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
+        HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+        current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
+
+        // Check if motor reached the target position
+        if (current == prev || current == prev + 1 || current == prev - 1)
+        {
+            counter++;
+        }
+        else
+        {
+            counter = 0;
+        }
+        HAL_Delay(200);
+    }
+
+    // Stop PWM and record maximum left steering position
+    sConfigOC.Pulse = 0;
+    HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+    Max_Steering_Left = current;
+    HAL_Delay(500);
+
+    // Set middle position based on calibrated left and right positions
+    int32_t middle = ((Max_Steering_Left + Max_Steering_Right) / 2);
+    while (current >= middle)
+    {
+        current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
+        HAL_GPIO_WritePin(GPIOB, STEERING_MOTOR_DIR_PIN, STEERING_RIGHT);
+        sConfigOC.Pulse = 40000;
+        HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
+        HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+        current = ((int32_t)(int16_t)TIM3->CNT) + CORRECTIVE_VALUE;
+    }
+
+    // Stop PWM after reaching the middle position
+    sConfigOC.Pulse = 0;
+    HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3);
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 }
-
 
 
 
