@@ -1,0 +1,9 @@
+module TopicDiscovery {
+    struct Data {
+        long steering;
+        long throttle;
+        long brake;
+        long buttons[8];
+    };
+};
+

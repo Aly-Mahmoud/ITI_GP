@@ -1,0 +1,5 @@
+/home/nourmoharram/cyclonedds/examples/trial3/build/CMakeFiles/TopicDiscovery_lib_generate.dir
+/home/nourmoharram/cyclonedds/examples/trial3/build/CMakeFiles/publisher.dir
+/home/nourmoharram/cyclonedds/examples/trial3/build/CMakeFiles/subscriber.dir
+/home/nourmoharram/cyclonedds/examples/trial3/build/CMakeFiles/edit_cache.dir
+/home/nourmoharram/cyclonedds/examples/trial3/build/CMakeFiles/rebuild_cache.dir
