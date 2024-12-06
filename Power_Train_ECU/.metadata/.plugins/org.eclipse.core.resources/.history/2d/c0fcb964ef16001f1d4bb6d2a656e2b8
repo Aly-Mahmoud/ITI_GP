@@ -1,0 +1,124 @@
+/**
+  ******************************************************************************
+  * @file           : Controlling.c
+  * @brief          : Module That Responsible To Control Steering and DC Motor
+  * 				  for RC Car.
+  ******************************************************************************/
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx_hal_tim.h"
+#include "cmsis_os2.h"
+
+void setMotorDirection(uint8_t dir);
+static uint32_t modulus(uint32_t a, uint32_t b);
+// Configure PWM parameters
+#define PWM_FREQUENCY   			10000    // PWM frequency in Hz
+#define PWM_MAX_DUTY    			100      // Maximum PWM duty cycle (0-100%)
+#define BACK_RIGHT_MOTOR_DIR_PIN	GPIO_PIN_14
+#define BACK_LEFT_MOTOR_DIR_PIN		GPIO_PIN_15
+#define BACK_RIGHT_MOTOR			0
+#define BACK_LEFT_MOTOR				1
+#define STEERING_MOTOR				2
+#define DIR_FWD						0
+#define DIR_BACK					1
+
+typedef enum{
+	CAR_FORWARD,
+	CAR_BACKWARD,
+	CAR_STOP
+};
+
+enum{
+	BACK,
+	one,
+	two,
+	three,
+	four,
+}Clutch_Values;
+
+typedef struct {
+	uint8_t header;
+    uint16_t steering;
+    uint8_t pedal_gas;
+    uint8_t pedal_brake;
+    uint8_t clutch;
+    uint8_t buttons;
+    uint8_t crc;
+} steering_frame_t;
+
+TIM_OC_InitTypeDef sConfigOC[2];
+extern TIM_HandleTypeDef htim1;
+extern volatile steering_frame_t steering_data;
+uint8_t pwm_value_Back_Right= 0;
+uint8_t pwm_value_Back_Left = 0;
+uint8_t pwm_vlaue_steering = 0;
+
+void controllingSM(void)
+{
+	/*Set the Direction of MOtores to FWD*/
+	setMotorDirection(DIR_FWD);
+	pwm_vlaue_steering = steering_data.steering;
+	switch(steering_data.clutch)
+	{
+	case BACK:
+		setMotorDirection(DIR_BACK);
+		pwm_value_Back_Right = 50*(modulus(steering_data.pedal_gas, steering_data.pedal_brake) / 100);
+		pwm_value_Back_Left = 50*(modulus(steering_data.pedal_gas, steering_data.pedal_brake) / 100);
+		break;
+	case one:
+		setMotorDirection(DIR_FWD);
+		pwm_value_Back_Right = 25*(modulus(steering_data.pedal_gas, steering_data.pedal_brake) / 100);
+		pwm_value_Back_Left = 25*(modulus(steering_data.pedal_gas, steering_data.pedal_brake) / 100);
+		break;
+	case two:
+		setMotorDirection(DIR_FWD);
+		pwm_value_Back_Right = 50*(modulus(steering_data.pedal_gas, steering_data.pedal_brake) / 100);
+		pwm_value_Back_Left = 50*(modulus(steering_data.pedal_gas, steering_data.pedal_brake) / 100);
+		break;
+	case three:
+		setMotorDirection(DIR_FWD);
+		pwm_value_Back_Right = 75*(modulus(steering_data.pedal_gas, steering_data.pedal_brake) / 100);
+		pwm_value_Back_Left = 75*(modulus(steering_data.pedal_gas, steering_data.pedal_brake) / 100);
+		break;
+	case four:
+		setMotorDirection(DIR_FWD);
+		pwm_value_Back_Right = 100*(modulus(steering_data.pedal_gas, steering_data.pedal_brake) / 100);
+		pwm_value_Back_Left = 100*(modulus(steering_data.pedal_gas, steering_data.pedal_brake) / 100);
+		break;
+	}
+}
+
+void Controlling()
+{
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+	while(1)
+	{
+		sConfigOC[BACK_RIGHT_MOTOR].Pulse = (pwm_value_Back_Right * PWM_MAX_DUTY) / 100;
+	    HAL_TIM_PWM_ConfigChannel(&htim, &sConfigOC[BACK_RIGHT_MOTOR], TIM_CHANNEL_1);
+		sConfigOC[BACK_LEFT_MOTOR].Pulse = (pwm_value_Back_Left * PWM_MAX_DUTY) / 100;
+	    HAL_TIM_PWM_ConfigChannel(&htim, &sConfigOC[BACK_LEFT_MOTOR], TIM_CHANNEL_2);
+	}
+}
+
+
+void setMotorDirection(uint8_t dir)
+{
+	HAL_GPIO_WritePin(GPIOB, BACK_LEFT_MOTOR_DIR_PIN, dir);
+	HAL_GPIO_WritePin(GPIOB, BACK_RIGHT_MOTOR_DIR_PIN, dir);
+}
+
+
+static uint32_t modulus(uint32_t a, uint32_t b)
+{
+    int result = a - b;
+    if (result < 0)
+    {
+        return -result;
+    }
+    else
+    {
+        return result;
+    }
+}
+
+

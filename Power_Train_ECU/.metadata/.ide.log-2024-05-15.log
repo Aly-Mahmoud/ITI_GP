@@ -1,0 +1,16 @@
+2024-05-16 01:06:48,284 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Exception in thread "Browser Thread: 9024fc9d-e681-413b-8363-257d9c75fa86" java.lang.IllegalStateException
+2024-05-16 01:06:52,606 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.teamdev.jxbrowser.deps.com.google.common.base.Preconditions.checkState(Preconditions.java:494)
+2024-05-16 01:06:52,620 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.teamdev.jxbrowser.internal.RpcThreadImpl.submit(RpcThreadImpl.java:94)
+2024-05-16 01:06:52,622 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.teamdev.jxbrowser.browser.internal.BrowserImpl.notifyObserversAsync(BrowserImpl.java:768)
+2024-05-16 01:06:52,623 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.teamdev.jxbrowser.frame.internal.Frames.lambda$deleteFrame$3(Frames.java:73)
+2024-05-16 01:06:52,625 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+2024-05-16 01:06:52,626 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.teamdev.jxbrowser.frame.internal.Frames.deleteFrame(Frames.java:71)
+2024-05-16 01:06:52,627 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.teamdev.jxbrowser.frame.internal.Frames.lambda$new$1(Frames.java:32)
+2024-05-16 01:06:52,670 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.teamdev.jxbrowser.internal.rpc.stream.CallbackStream.process(CallbackStream.java:181)
+2024-05-16 01:06:52,715 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.teamdev.jxbrowser.internal.rpc.stream.Stream$StreamObserver.lambda$onNext$0(Stream.java:167)
+2024-05-16 01:06:52,726 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.teamdev.jxbrowser.internal.RpcThreadImpl$TaskRunner.processTasks(RpcThreadImpl.java:172)
+2024-05-16 01:06:52,726 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.lang.Thread.run(Thread.java:833)
+2024-05-16 01:06:52,730 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 1:06:51.691 ERROR Chromium process exit code: 1,073,807,364
+2024-05-16 01:06:52,731 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-05-16 01:06:52,752 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 1:06:52.732 ERROR Crash dump dir: C:\Users\Momen El Sayed\AppData\Local\JxBrowser\7.37.2\CrashReports
+2024-05-16 01:06:52,752 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 

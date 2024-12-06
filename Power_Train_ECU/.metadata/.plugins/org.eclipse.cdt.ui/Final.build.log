@@ -1,0 +1,13 @@
+21:20:59 **** Incremental Build of configuration Debug for project Final ****
+make -j8 all 
+gdawrf-2
+make[1]: [makefile:97: pre-build] Error -1 (ignored)
+ 
+arm-none-eabi-size  Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32584	    100	  21316	  54000	   d2f0	Final.elf
+Finished building: default.size.stdout
+ 
+
+21:21:00 Build Finished. 0 errors, 0 warnings. (took 756ms)
+

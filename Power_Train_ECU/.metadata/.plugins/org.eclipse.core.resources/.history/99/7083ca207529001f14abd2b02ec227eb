@@ -1,0 +1,55 @@
+/**
+  ******************************************************************************
+  * @file           : getSteering.c
+  * @brief          : Module That Responsible To Check the steering position through ADC
+  ******************************************************************************/
+  
+#include "stm32f4xx_hal.h"
+#include "cmsis_os2.h"
+
+// Global variables to keep track of the encoder state
+volatile int encoderPos = 0; // Position counter
+volatile int lastEncoded = 0; // Stores the last encoded value
+
+// Function to read the current state of the encoder signals
+void read_encoder_signals(void) {
+    // Read the current state of signal A and B
+	 int MSB = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0); // Read the current state of encoder pin A
+	 int LSB = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1); // Read the current state of encoder pin B
+
+	    // Combine the two bits into a single value
+	 int encoded = (MSB << 1) | LSB;
+
+	    // Combine the new encoded value with the last one to detect the direction
+	 int sum = (lastEncoded << 2) | encoded;
+
+	    // Detect direction based on the state change
+	 if (sum == 0b1101 || sum == 0b0100 || sum == 0b0010 || sum == 0b1011) encoderPos++;
+	 if (sum == 0b1110 || sum == 0b0111 || sum == 0b0001 || sum == 0b1000) encoderPos--;
+
+	    // Update the last encoded value
+	 lastEncoded = encoded;
+}
+
+void getSteeringPosition(void) {
+
+    while (1)
+    {
+        read_encoder_signals(); // Read encoder signals
+        osDelay(10); // Delay to simulate periodic checking (adjust as necessary)
+    }
+}
+
+ 
+void EXTI0_IRQHandler(void)
+{
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0); // Clear the interrupt flag
+    read_encoder_signals(); // Read the encoder signals and update position
+}
+
+void EXTI1_IRQHandler(void)
+{
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1); // Clear the interrupt flag
+    read_encoder_signals(); // Read the encoder signals and update position
+}
+

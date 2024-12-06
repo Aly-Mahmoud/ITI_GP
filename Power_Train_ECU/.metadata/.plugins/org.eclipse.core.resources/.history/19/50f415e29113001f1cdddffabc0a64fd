@@ -1,0 +1,17 @@
+/**
+  ******************************************************************************
+  * @file           : Communication.c
+  * @brief          : Module That Responsible To Transfer Data To and From Power
+  * 				  Train ECU
+  ******************************************************************************/
+#include "stm32f4xx_hal_uart.h"
+void Communicatin(void const * argument)
+{
+  /* USER CODE BEGIN Communicatin */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END Communicatin */
+}

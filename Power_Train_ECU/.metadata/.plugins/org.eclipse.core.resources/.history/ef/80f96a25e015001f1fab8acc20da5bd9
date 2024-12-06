@@ -1,0 +1,56 @@
+/**
+  ******************************************************************************
+  * @file           : Communication.c
+  * @brief          : Module That Responsible To Transfer Data To and From Power
+  *                   Train ECU
+  ******************************************************************************/
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx_hal_uart.h"
+#include "cmsis_os2.h"
+
+#define BUFFER_SIZE 8
+
+typedef struct {
+    uint8_t header;
+    uint16_t steering;
+    uint8_t pedal_gas;
+    uint8_t pedal_brake;
+    uint8_t clutch;
+    uint8_t buttons;
+    uint8_t crc;
+} steering_frame_t;
+
+
+volatile steering_frame_t steering_data;
+extern UART_HandleTypeDef huart2;
+
+uint8_t uart_rx_buffer[BUFFER_SIZE];
+
+void Parse_Steering_Data(void)
+{
+    steering_data.header = uart_rx_buffer[0];
+    steering_data.steering = (uart_rx_buffer[1] << 8) | uart_rx_buffer[2];
+    steering_data.pedal_gas = uart_rx_buffer[3];
+    steering_data.pedal_brake = uart_rx_buffer[4];
+    steering_data.clutch = uart_rx_buffer[5];
+    steering_data.buttons = uart_rx_buffer[6];
+    steering_data.crc = uart_rx_buffer[7];
+}
+
+
+void UART_Receive(void)
+{
+	HAL_UART_Receive(&huart2, (uint8_t *)uart_rx_buffer, BUFFER_SIZE, HAL_MAX_DELAY);
+}
+
+
+void Communication(void)
+{
+
+    while (1)
+    {
+        UART_Receive();
+        Parse_Steering_Data();
+
+    }
+}

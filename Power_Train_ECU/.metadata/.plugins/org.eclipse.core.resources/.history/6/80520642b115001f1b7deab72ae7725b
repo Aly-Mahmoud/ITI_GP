@@ -1,0 +1,81 @@
+/**
+  ******************************************************************************
+  * @file           : Communication.c
+  * @brief          : Module That Responsible To Transfer Data To and From Power
+  *                   Train ECU
+  ******************************************************************************/
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx_hal_uart.h"
+#include "cmsis_os2.h"
+
+#define BUFFER_SIZE 8
+
+typedef struct {
+    uint8_t header;
+    uint16_t steering;
+    uint8_t pedal_gas;
+    uint8_t pedal_brake;
+    uint8_t clutch;
+    uint8_t buttons;
+    uint8_t crc;
+} steering_frame_t;
+
+extern UART_HandleTypeDef huart2;
+
+volatile steering_frame_t steering_data;
+uint8_t rx_buffer[BUFFER_SIZE];
+osMutexId_t steering_data_mutex;
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+    if (huart->Instance == USART2)
+    {
+        /*Acquire the mutex before accessing the shared data*/
+        if (osMutexAcquire(steering_data_mutex, osWaitForever) == osOK)
+        {
+            steering_data.header = rx_buffer[0];
+            steering_data.steering = (rx_buffer[1] << 8) | rx_buffer[2];
+            steering_data.pedal_gas = rx_buffer[3];
+            steering_data.pedal_brake = rx_buffer[4];
+            steering_data.clutch = rx_buffer[5];
+            steering_data.buttons = rx_buffer[6];
+            steering_data.crc = rx_buffer[7];
+
+            /* Release the mutex after updating the shared data */
+            osMutexRelease(steering_data_mutex);
+        }
+
+        // Restart the UART reception
+        HAL_UART_Receive_IT(&huart2, rx_buffer, BUFFER_SIZE);
+    }
+}
+
+void communication_task(void)
+{
+
+    /*Create the mutex for protecting the steering data*/
+    steering_data_mutex = osMutexNew(NULL);
+    if (steering_data_mutex == NULL)
+    {
+        // Handle mutex creation failure
+        while(1);
+    }
+
+    /* Start UART reception with interrupt*/
+    HAL_UART_Receive_IT(&huart2, rx_buffer, BUFFER_SIZE);
+
+    while (1)
+    {
+        // Example usage: safely read the steering data
+        if (osMutexAcquire(steering_data_mutex, osWaitForever) == osOK)
+        {
+            // Access the steering_data here
+            // Example: Process the data
+
+            // Release the mutex after accessing the shared data
+            osMutexRelease(steering_data_mutex);
+        }
+
+        osDelay(100);  // Delay to simulate task processing
+    }
+}

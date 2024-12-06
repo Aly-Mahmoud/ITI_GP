@@ -1,0 +1,34 @@
+/**
+  ******************************************************************************
+  * @file           : Controlling.c
+  * @brief          : Module That Responsible To Control Steering and DC Motor
+  * 				  for RC Car.
+  ******************************************************************************/
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx_hal_tim.h"
+#include "cmsis_os2.h"
+
+// Configure PWM parameters
+#define PWM_FREQUENCY   10000    // PWM frequency in Hz
+#define PWM_MAX_DUTY    100      // Maximum PWM duty cycle (0-100%)
+
+
+TIM_OC_InitTypeDef sConfigOC[3];
+extern TIM_HandleTypeDef htim1;
+extern volatile steering_frame_t steering_data;
+
+
+void controllingSM(void)
+{
+	switch()
+}
+
+void Controlling()
+{
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+	while(1)
+	{
+
+	}
+}

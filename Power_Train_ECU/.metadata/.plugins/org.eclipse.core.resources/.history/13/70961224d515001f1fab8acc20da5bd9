@@ -1,0 +1,88 @@
+/**
+  ******************************************************************************
+  * @file           : Communication.c
+  * @brief          : Module That Responsible To Transfer Data To and From Power
+  *                   Train ECU
+  ******************************************************************************/
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx_hal_uart.h"
+#include "cmsis_os2.h"
+
+#define BUFFER_SIZE 8
+
+typedef struct {
+    uint8_t header;
+    uint16_t steering;
+    uint8_t pedal_gas;
+    uint8_t pedal_brake;
+    uint8_t clutch;
+    uint8_t buttons;
+    uint8_t crc;
+} steering_frame_t;
+
+
+volatile steering_frame_t steering_data;
+extern UART_HandleTypeDef huart2;
+uint8_t uart_rx_buffer[BUFFER_SIZE];
+
+
+void MX_FREERTOS_Init(void)
+{
+	/* Definitions for Communication_T */
+	osThreadId_t Communication_THandle;
+	const osThreadAttr_t Communication_T_attributes = {
+	  .name = "Communication_T",
+	  .stack_size = 128 * 4,
+	  .priority = (osPriority_t) osPriorityRealtime,
+	};
+	Communication_THandle = osThreadNew(Communication, NULL, communicationTaskAttributes);
+}
+void Parse_Steering_Data(void)
+{
+    steering_data.header = uart_rx_buffer[0];
+    steering_data.steering = (uart_rx_buffer[1] << 8) | uart_rx_buffer[2];
+    steering_data.pedal_gas = uart_rx_buffer[3];
+    steering_data.pedal_brake = uart_rx_buffer[4];
+    steering_data.clutch = uart_rx_buffer[5];
+    steering_data.buttons = uart_rx_buffer[6];
+    steering_data.crc = uart_rx_buffer[7];
+}
+
+
+void UART_Receive(void)
+{
+	HAL_UART_Receive(&huart2, (uint8_t *)uart_rx_buffer, BUFFER_SIZE, HAL_MAX_DELAY);
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+    if (huart->Instance == USART2)
+    {
+        if (uart_rx_buffer[0] == 0x55)
+        {
+            osThreadFlagsSet(Communication_THandle, 0x01);
+        }
+        else
+        {
+            // Discard the frame and re-enable UART receive interrupt
+            HAL_UART_Receive_IT(&huart2, uart_rx_buffer, BUFFER_SIZE);
+        }
+    }
+}
+
+void Communication(void)
+{
+    UART_Receive();
+    while (1)
+    {
+        // Wait for the UART receive complete callback to set the flag
+        osThreadFlagsWait(0x01, osFlagsWaitAny, osWaitForever);
+
+        // Process the received data
+        Parse_Steering_Data();
+
+        // Re-enable UART receive interrupt for the next frame
+        UART_Receive();
+
+    }
+}

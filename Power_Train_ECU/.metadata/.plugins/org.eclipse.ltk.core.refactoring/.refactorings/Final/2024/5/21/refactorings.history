@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Final/Core/Src/getSteering&apos; to &apos;getSteering.c&apos;" description="Rename resource &apos;getSteering&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/getSteering" name="getSteering.c" stamp="1716371251512" updateReferences="true"/>
+</session>
